@@ -6,9 +6,13 @@ Code and benchmark instances for:
 ## Requirements
 - Julia 1.11 (all package versions pinned in `Manifest.toml`)
 - Gurobi 12.0.0 with a valid licence (free for academics)
+- `curl` and `unzip` (only for downloading the Anjos-large and Sko-large instances)
 
 ## Installation
     julia --project=. -e "using Pkg; Pkg.instantiate()"
+    bash scripts/get_instances.sh
+
+The second command downloads the Anjos-large and Sko-large instances from their original source (see [Instances](#instances)).
 
 ## Run one instance
     julia --project=. src/window_matheuristic.jl <instance> <cooling_factor> <p_swap> <inner_runs_factor> <acceleration 0|1> [time_limit] [seed]
@@ -35,8 +39,32 @@ The parameter values were tuned with irace (see Section 5.2 of the paper).
 Because the runs are time-limited and randomised, re-runs will differ slightly from the reported values.
 
 ## Instances
-Anjos-large, Sko-large and Palubeckis-large come from <original papers>. Please cite those sources if you use them.
+The 70 benchmark instances are taken from the literature:
+- **Anjos-large** and **Sko-large** (40 instances; n = 200, 300, 400, 500; five per size and set):
+  Rubio-Sánchez, M., Gallego, M., Gortázar, F., & Duarte, A. (2016). GRASP with path relinking for the single row facility layout problem. *Knowledge-Based Systems*, 106, 1–13. <https://doi.org/10.1016/j.knosys.2016.05.030>
+  These instances are **not included** in this repository. `scripts/get_instances.sh` downloads them unchanged from the
+  [OptSicom SRFLP benchmark page](https://grafo.etsii.urjc.es/optsicom/srflp.html) and checks them against
+  `instances/large_instances.sha256`, the checksums of the files used in the paper.
+- **Palubeckis-large** (30 instances; n = 310–1000): Palubeckis, G. (2015). Fast local search for single row facility layout. *European Journal of Operational Research*, 246(3), 800–814.
+  Included in `instances/` with the permission of the author.
+
+All files share one format: n, followed by the n facility lengths, followed by the full n × n weight matrix.
+Please cite the original sources if you use these instances.
+
+## Citation
+If you use this code, please cite the paper:
+
+```bibtex
+@article{pammer2026matheuristic,
+  title   = {A matheuristic for solving the single row facility layout problem},
+  author  = {Pammer, Thomas and Sinnl, Markus},
+  journal = {Computers \& Operations Research},
+  year    = {2026},
+  pages   = {107397},
+  doi     = {10.1016/j.cor.2026.107397}
+}
+```
 
 ## License
-Code: MIT. The benchmark instances belong to their original authors.
-
+The code is licensed under MIT. The MIT license does not cover the benchmark instances: the Palubeckis instances
+are redistributed with the permission of their author, and all rights remain with the original authors.

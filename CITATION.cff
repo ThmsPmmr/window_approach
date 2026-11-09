@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "Window matheuristic for the single row facility layout problem (SRFLP)"
+type: software
+authors:
+  - family-names: Pammer
+    given-names: Thomas
+    affiliation: "Institute for Application-Oriented Knowledge Processing (FAW), Johannes Kepler University Linz"
+  - family-names: Sinnl
+    given-names: Markus
+    affiliation: "Institute of Business Analytics and Technology Transformation, Johannes Kepler University Linz"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/ThmsPmmr/window_approach"
+keywords:
+  - single row facility layout problem
+  - matheuristic
+  - simulated annealing
+  - mixed-integer programming
+preferred-citation:
+  type: article
+  title: "A matheuristic for solving the single row facility layout problem"
+  authors:
+    - family-names: Pammer
+      given-names: Thomas
+    - family-names: Sinnl
+      given-names: Markus
+  journal: "Computers & Operations Research"
+  year: 2026
+  doi: "10.1016/j.cor.2026.107397"

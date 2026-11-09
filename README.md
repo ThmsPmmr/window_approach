@@ -5,7 +5,7 @@ Code and benchmark instances for:
 
 ## Requirements
 - Julia 1.11 (all package versions pinned in `Manifest.toml`)
-- Gurobi 12.0.0 with a valid licence (free for academics)
+- Gurobi 12.0.3 with a valid licence (free for academics)
 - `curl` and `unzip` (only for downloading the Anjos-large and Sko-large instances)
 
 ## Installation
@@ -13,6 +13,7 @@ Code and benchmark instances for:
     bash scripts/get_instances.sh
 
 The second command downloads the Anjos-large and Sko-large instances from their original source (see [Instances](#instances)).
+Gurobi must find your licence: put gurobi.lic in your home directory or set GRB_LICENSE_FILE=/path/to/gurobi.lic.
 
 ## Run one instance
     julia --project=. src/window_matheuristic.jl <instance> <cooling_factor> <p_swap> <inner_runs_factor> <acceleration 0|1> [time_limit] [seed]
